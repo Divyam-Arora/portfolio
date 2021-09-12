@@ -1,5 +1,8 @@
 const Button = function (props) {
   const buttonClickHandler = () => {
+    if (window.location.href === props.link) {
+      window.location.reload();
+    }
     window.open(props.link);
   };
   return (

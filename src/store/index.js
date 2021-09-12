@@ -71,11 +71,11 @@ const initialAppState = {
         links: [
           {
             title: "Github",
-            link: "",
+            link: "https://github.com/Divyam-Arora/portfolio",
           },
           {
             title: "Website",
-            link: "",
+            link: "https://divyam-portfolio.netlify.app",
           },
         ],
       },
