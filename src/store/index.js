@@ -86,11 +86,11 @@ const initialAppState = {
         links: [
           {
             title: "Github",
-            link: "",
+            link: "https://github.com/Divyam-Arora/fooodify",
           },
           {
             title: "Website",
-            link: "",
+            link: "https://da-fooodify.netlify.app/",
           },
         ],
       },
