@@ -1,0 +1,114 @@
+@import "../../assests/styles/base";
+
+.nav_overlay {
+  //   transform: translateY(100vh);
+  height: 100vh;
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  //   overflow: scroll;
+  background: linear-gradient(
+    0deg,
+    $color-background,
+    $color-background 80vh,
+    transparent
+  );
+  transition: 0.3s;
+  .menu {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: inherit;
+    // justify-content: flex-end;
+    text-align: center;
+    width: 100%;
+    min-height: max-content;
+    padding-top: 16rem;
+    overflow: auto;
+    button {
+      @include btn(80%, 32rem, $font-size-title);
+      @include btn-default();
+      margin: 0rem 0rem 8rem 0px;
+      transition: 0.2s;
+      //   display: block;
+      //   &:hover {
+      //     @include btn-hover();
+      //     font-size: 32px;
+      //   }
+
+      //   @media screen and (max-height: 500px) {
+      //     width: 40%;
+      //   }
+      //   &:active {
+      //     @include btn-active();
+      //     font-size: $font-size-title;
+      //     color: $color-primary;
+      //   }
+
+      @media screen and (min-width: $screen-desktop) {
+        &:hover {
+          @include btn-hover();
+        }
+      }
+    }
+    .button--active {
+      @include btn-active();
+      font-size: $font-size-title;
+      color: $color-primary;
+
+      @media screen and (min-width: $screen-desktop) {
+        width: 100%;
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-desktop) {
+    width: 30%;
+    left: auto;
+    right: 0;
+    padding-bottom: 14rem;
+    transform: translateY(0%) !important;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .menu {
+      text-align: right;
+      width: 70%;
+      min-width: min-content;
+      padding-right: 10rem;
+      button {
+        font-size: 8rem;
+        width: 90%;
+        height: 14rem;
+        margin-bottom: 6rem;
+        text-align: right;
+        padding-right: 4rem;
+        padding-left: 4rem;
+
+        // &:active {
+        //   @include btn-active();
+        //   font-size: 10rem;
+        //   color: $color-primary;
+        // }
+      }
+
+      .button--active {
+        @include btn-active();
+        font-size: 10rem;
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.hidden {
+  transform: translateY(100%);
+  //   height: 1000px;
+  overflow: hidden;
+}

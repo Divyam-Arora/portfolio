@@ -1,0 +1,125 @@
+@import "../../assests/styles/base";
+
+.contact_form {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 120rem;
+
+  @media screen and (min-width: $screen-desktop) {
+    padding-left: 10rem;
+    width: 80%;
+  }
+
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 8rem;
+
+    label {
+      font-size: $font-size-title;
+      font-weight: bold;
+      transition: 0.5s;
+      transition-delay: calc(1s * var(--delay));
+      opacity: 1;
+
+      @media screen and (min-width: $screen-desktop) {
+        font-size: 10rem;
+      }
+      //   font-weight: ;
+    }
+
+    .label--init {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+
+    input,
+    textarea {
+      z-index: 5;
+      color: white;
+      font-size: $font-size-text;
+      background-color: $color-background;
+      border: 1px solid $color-primary;
+      font-family: $font-family;
+      padding: 8rem;
+      border-radius: 10px;
+      width: 100%;
+
+      @media screen and (min-width: $screen-desktop) {
+        padding: 4rem;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        box-shadow: 0 0 0 100px $color-background inset !important;
+        -webkit-box-shadow: 0 0 0 100px $color-background inset !important;
+        -webkit-text-fill-color: white !important;
+      }
+    }
+
+    textarea {
+      min-height: 80rem;
+      @media screen and (min-width: $screen-desktop) {
+        min-height: 60rem;
+      }
+    }
+  }
+
+  button {
+    @include btn(80rem, 24rem, $font-size-title);
+    @include btn-default();
+    margin-top: 8rem;
+    transition: 0.3s;
+
+    @media screen and (min-width: $screen-desktop) {
+      &:hover {
+        @include btn-hover();
+      }
+      width: 60rem;
+      height: 16rem;
+      font-size: 10rem;
+    }
+
+    &:active {
+      @include btn-active();
+    }
+
+    // &--enabled {
+    //   &:active {
+    //     @include btn-active();
+    //   }
+    // }
+
+    // &--disabled {
+    //   box-shadow: none;
+    //   cursor: not-allowed;
+    // }
+  }
+}
+
+.footer {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  background-color: $color-background;
+
+  p {
+    font-size: 6rem;
+    padding: 8rem;
+    color: white;
+    margin-bottom: 40rem;
+
+    @media screen and (min-width: $screen-desktop) {
+      font-size: 4rem;
+    }
+  }
+}

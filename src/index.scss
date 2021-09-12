@@ -1,0 +1,184 @@
+@import "assests/styles/base";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+  box-sizing: inherit;
+}
+
+*::-webkit-scrollbar {
+  width: 4rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 4rem;
+  background-color: $color-primary;
+  opacity: 1;
+  border-radius: 5rem;
+}
+
+*::-webkit-scrollbar-track {
+  opacity: 1;
+  background-color: black;
+}
+
+*::selection {
+  background-color: black;
+  color: $color-primary;
+  opacity: 1;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 2px;
+
+  @media screen and (min-width: 400px) {
+    font-size: 2.2px;
+  }
+
+  @media screen and (min-width: 500px) {
+    font-size: 2.4px;
+  }
+
+  @media screen and (min-width: 600px) {
+    font-size: 2.6px;
+  }
+
+  @media screen and (min-width: 700px) {
+    font-size: 2.8px;
+  }
+
+  @media screen and (min-width: 800px) {
+    font-size: 3px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    font-size: 3.2px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 3.4px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    font-size: 3.6px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 3.8px;
+  }
+
+  @media screen and (min-width: 1800px) {
+    font-size: 4px;
+  }
+}
+
+body {
+  background-color: $color-background;
+  font-family: $font-family;
+  color: white;
+  width: 100%;
+  height: 100vh;
+
+  @media screen and (min-width: $screen-desktop) {
+    overflow: auto !important;
+  }
+}
+
+.clear-fix {
+  list-style: none;
+  list-style-image: none;
+}
+
+ul {
+  min-width: min-content;
+}
+
+#root {
+  width: 100%;
+  @media screen and (min-width: $screen-desktop) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+main {
+  width: 100%;
+
+  @media screen and (min-width: $screen-desktop) {
+    width: 70%;
+  }
+}
+
+.no_scroll {
+  overflow: hidden;
+}
+
+#home {
+  height: 100vh;
+  min-height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 40rem;
+  .home--name {
+    color: $color-primary;
+    font-size: $font-size-name;
+    line-height: 100%;
+    text-shadow: 2px 2px 15px black;
+    padding-left: 8rem;
+
+    @media screen and (min-width: $screen-desktop) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 120px;
+
+      p {
+        margin-right: 8rem;
+      }
+    }
+  }
+  .home--work {
+    color: white;
+    font-size: $font-size-title;
+    padding-left: 16rem;
+    margin-top: 8rem;
+  }
+
+  @media screen and (min-width: $screen-desktop) {
+    padding-bottom: 20rem;
+  }
+}
+
+.sec_head--top {
+  top: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.sec_head--bottom {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.sec_head--fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: auto;
+
+  @media screen and (min-width: $screen-desktop) {
+    width: 70%;
+  }
+}

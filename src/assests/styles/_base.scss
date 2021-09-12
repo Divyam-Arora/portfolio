@@ -1,0 +1,39 @@
+$color-primary: #849467;
+$color-background: #222420;
+
+$font-family: "Roboto Light";
+
+$font-size-name: 40rem;
+$font-size-heading: 20rem;
+$font-size-title: 12rem;
+$font-size-text: 8rem;
+
+$screen-max: 1920px;
+$screen-desktop: 950px;
+$screen-tablet: 550px;
+$screen-phone: 250px;
+$screen-min: 150px;
+
+@mixin btn($width: auto, $height: auto, $fontSize: $font-size-text) {
+  background-color: $color-background;
+  color: white;
+  width: $width;
+  min-width: min-content;
+  border: none;
+  font-size: $fontSize;
+  height: $height;
+  border-radius: 10px;
+}
+
+@mixin btn-default() {
+  box-shadow: 2px 2px 8px #0000005f, -2px -2px 8px #ffffff0f;
+  border: 1px solid transparent;
+}
+@mixin btn-hover() {
+  box-shadow: 0px 0px 0px #0000005f, 0px 0px 0px #ffffff0f;
+  border: 1px solid $color-primary;
+}
+@mixin btn-active() {
+  box-shadow: inset 2px 2px 5px #0000007f, inset -2px -2px 5px #ffffff1f;
+  border: 1px solid transparent;
+}

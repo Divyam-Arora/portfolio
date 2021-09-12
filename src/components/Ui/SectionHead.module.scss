@@ -1,0 +1,12 @@
+@import "../../assests/styles/base";
+
+.sec_head {
+  background: linear-gradient(to right, $color-primary 0%, transparent 100%);
+  padding-left: 8rem;
+  font-size: $font-size-heading;
+  color: white;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

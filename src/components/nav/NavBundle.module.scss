@@ -1,0 +1,17 @@
+@import "../../assests/styles/base";
+
+.bottom_nav {
+  z-index: 999;
+  width: 100vw;
+  min-width: min-content;
+  height: 0rem;
+  overflow: visible;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  @media screen and (min-width: $screen-desktop) {
+    position: relative;
+    width: 30%;
+  }
+}
