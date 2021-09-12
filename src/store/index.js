@@ -75,7 +75,7 @@ const initialAppState = {
           },
           {
             title: "Website",
-            link: "https://divyam-portfolio.netlify.app",
+            link: "https://divyam-portfolio.netlify.app/",
           },
         ],
       },
