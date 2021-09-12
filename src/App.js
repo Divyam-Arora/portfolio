@@ -11,9 +11,9 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact/Contact";
 
 function App() {
-  // const { isOpen } = useSelector((state) => state.menu);
-  const dispatch = useDispatch();
   const { menu } = useSelector((state) => state.app.nav);
+  const dispatch = useDispatch();
+  // const { isOpen } = useSelector((state) => state.menu);
   // const { hash } = useSelector((state) => state.hash);
 
   useEffect(() => {
@@ -27,9 +27,7 @@ function App() {
     }
 
     // dispatch(hashActions.setHash(window.location.hash.slice(1)));
-  }, []);
 
-  useEffect(() => {
     const sections = menu.map((item) => {
       const secId = item.toLowerCase();
       const sec = document.getElementById(secId);
@@ -37,6 +35,7 @@ function App() {
 
       return { secId, section: sec, head: head };
     });
+
     document.body.onscroll = function (e) {
       const scroll = window.pageYOffset;
       sections.forEach((sec) => {
@@ -69,7 +68,7 @@ function App() {
         // console.log(scroll, sec.section.offsetTop + sec.section.offsetHeight);
       });
     };
-  }, []);
+  }, [menu, dispatch]);
 
   return (
     <>

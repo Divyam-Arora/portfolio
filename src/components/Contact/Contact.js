@@ -10,29 +10,29 @@ const Contact = function () {
 
   const formRef = useRef();
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.2,
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      Array.from(entries[0].target.querySelectorAll("label")).forEach(
-        (label) => {
-          label.classList.remove(classes["label--init"]);
-        }
-      );
-      observer.unobserve(entries[0].target);
-    }
-    // console.log(entries);
-    // else {
-    // entries[0].target
-    // .querySelector(`.${classes.revealer}`)
-    // .classList.remove(classes["revealer--reveal"]);
-    // }
-  }, observerOptions);
-
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        Array.from(entries[0].target.querySelectorAll("label")).forEach(
+          (label) => {
+            label.classList.remove(classes["label--init"]);
+          }
+        );
+        observer.unobserve(entries[0].target);
+      }
+      // console.log(entries);
+      // else {
+      // entries[0].target
+      // .querySelector(`.${classes.revealer}`)
+      // .classList.remove(classes["revealer--reveal"]);
+      // }
+    }, observerOptions);
+
     observer.observe(formRef.current);
   }, []);
 

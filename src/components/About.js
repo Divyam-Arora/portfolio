@@ -11,19 +11,6 @@ const About = function () {
 
   const [isVisible, setIsVisible] = useState(false);
 
-  const observerOptions = {
-    root: null,
-    rootMargin: "-20px",
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  }, observerOptions);
-
   const buttons = about.social.map((button) => {
     return (
       <Button
@@ -40,6 +27,19 @@ const About = function () {
   });
 
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20px",
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    }, observerOptions);
+
     observer.observe(document.getElementById("about"));
   }, []);
   return (

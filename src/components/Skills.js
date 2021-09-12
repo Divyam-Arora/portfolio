@@ -9,28 +9,6 @@ const Skills = function () {
 
   const listRef = useRef();
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.2,
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      Array.from(entries[0].target.querySelectorAll("li")).forEach((list) => {
-        list.querySelector("figure").classList.add(classes["logo--fill"]);
-        list
-          .querySelector(`.${classes["bar--empty"]}`)
-          .classList.remove(classes["bar--empty"]);
-      });
-      observer.unobserve(entries[0].target);
-    }
-    // else {
-    // entries[0].target
-    // .querySelector(`.${classes.revealer}`)
-    // .classList.remove(classes["revealer--reveal"]);
-    // }
-  }, observerOptions);
-
   const skillsList = skills.map((skill, i) => {
     return (
       <li key={skill.title} style={{ "--delay": i / 7 }}>
@@ -52,6 +30,28 @@ const Skills = function () {
   });
 
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        Array.from(entries[0].target.querySelectorAll("li")).forEach((list) => {
+          list.querySelector("figure").classList.add(classes["logo--fill"]);
+          list
+            .querySelector(`.${classes["bar--empty"]}`)
+            .classList.remove(classes["bar--empty"]);
+        });
+        observer.unobserve(entries[0].target);
+      }
+      // else {
+      // entries[0].target
+      // .querySelector(`.${classes.revealer}`)
+      // .classList.remove(classes["revealer--reveal"]);
+      // }
+    }, observerOptions);
+
     observer.observe(listRef.current);
   }, []);
 

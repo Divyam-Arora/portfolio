@@ -9,25 +9,6 @@ const Projects = function () {
   const { projects } = useSelector((state) => state.app.projects);
   const listRef = useRef();
 
-  const observerOptions = {
-    root: null,
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      entries[0].target
-        .querySelector(`.${classes.revealer}`)
-        .classList.add(classes["revealer--reveal"]);
-
-      observer.unobserve(entries[0].target);
-    }
-    // else {
-    // entries[0].target
-    // .querySelector(`.${classes.revealer}`)
-    // .classList.remove(classes["revealer--reveal"]);
-    // }
-  }, observerOptions);
-
   const projLists = projects.map((proj) => {
     return (
       <li key={proj.title}>
@@ -50,6 +31,25 @@ const Projects = function () {
   });
 
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        entries[0].target
+          .querySelector(`.${classes.revealer}`)
+          .classList.add(classes["revealer--reveal"]);
+
+        observer.unobserve(entries[0].target);
+      }
+      // else {
+      // entries[0].target
+      // .querySelector(`.${classes.revealer}`)
+      // .classList.remove(classes["revealer--reveal"]);
+      // }
+    }, observerOptions);
+
     Array.from(listRef.current.querySelectorAll("li")).forEach((list) => {
       observer.observe(list);
     });

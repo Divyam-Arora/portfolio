@@ -10,28 +10,6 @@ const Certifications = function () {
 
   const listRef = useRef();
 
-  const observerOptions = {
-    root: null,
-    threshold: 0.2,
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) {
-      Array.from(entries[0].target.querySelectorAll("li")).forEach((list) => {
-        list.querySelector("figure").classList.remove(classes["figure--fade"]);
-        list
-          .querySelector("article")
-          .classList.remove(classes["article--fade"]);
-      });
-      observer.unobserve(entries[0].target);
-    }
-    // else {
-    // entries[0].target
-    // .querySelector(`.${classes.revealer}`)
-    // .classList.remove(classes["revealer--reveal"]);
-    // }
-  }, observerOptions);
-
   const certificationsList = certifications.map((certificate, i) => {
     return (
       <li key={certificate.title}>
@@ -57,6 +35,30 @@ const Certifications = function () {
   });
 
   useEffect(() => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        Array.from(entries[0].target.querySelectorAll("li")).forEach((list) => {
+          list
+            .querySelector("figure")
+            .classList.remove(classes["figure--fade"]);
+          list
+            .querySelector("article")
+            .classList.remove(classes["article--fade"]);
+        });
+        observer.unobserve(entries[0].target);
+      }
+      // else {
+      // entries[0].target
+      // .querySelector(`.${classes.revealer}`)
+      // .classList.remove(classes["revealer--reveal"]);
+      // }
+    }, observerOptions);
+
     observer.observe(listRef.current);
   }, []);
 
