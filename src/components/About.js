@@ -4,12 +4,13 @@ import classes from "./About.module.scss";
 
 import SectionWrap from "./Ui/SectionWrap";
 import Button from "./Ui/Buton";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const About = function () {
   const { about } = useSelector((state) => state.app);
 
   const [isVisible, setIsVisible] = useState(false);
+  const socialRef = useRef();
 
   const buttons = about.social.map((button) => {
     return (
@@ -29,7 +30,7 @@ const About = function () {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20px",
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver(function (entries) {
@@ -40,11 +41,11 @@ const About = function () {
       }
     }, observerOptions);
 
-    observer.observe(document.getElementById("about"));
+    observer.observe(socialRef.current);
   }, []);
   return (
     <SectionWrap id="about" title="About">
-      <div className={classes.about_social}>
+      <div ref={socialRef} className={classes.about_social}>
         <figure className={classes.about_profile}>
           <img src={about.profileSrc} alt="profile"></img>
         </figure>

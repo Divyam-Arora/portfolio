@@ -33,6 +33,7 @@ const Projects = function () {
   useEffect(() => {
     const observerOptions = {
       root: null,
+      threshold: 0.3,
     };
 
     const observer = new IntersectionObserver(function (entries) {
