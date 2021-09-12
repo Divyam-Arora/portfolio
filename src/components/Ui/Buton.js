@@ -1,9 +1,9 @@
 const Button = function (props) {
   const buttonClickHandler = () => {
     if (window.location.href === props.link) {
-      window.location.reload();
+    } else {
+      window.open(props.link);
     }
-    window.open(props.link);
   };
   return (
     <button className={props.class ?? ""} onClick={buttonClickHandler}>
