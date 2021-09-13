@@ -28,6 +28,7 @@ const Nav = function () {
         {nav.buttons[0].title}
       </Button>
       <button
+        aria-label="nav"
         onClick={menuHandler}
         className={`${classes.btn_menu} ${
           isOpen ? classes["btn--active"] : ""

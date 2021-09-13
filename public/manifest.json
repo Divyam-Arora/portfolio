@@ -1,12 +1,16 @@
 {
   "short_name": "Divyam",
   "name": "Divyam Arora",
-  "minimum_chrome_version": "20",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
     },
     {
       "src": "logo192.png",
@@ -14,13 +18,13 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo310.png",
+      "src": "logo-640x640.png",
       "type": "image/png",
-      "sizes": "310x310"
+      "sizes": "640x640"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#849467",
+  "background_color": "#222420"
 }
