@@ -65,6 +65,21 @@ const initialAppState = {
     heading: "Projects",
     projects: [
       {
+        title: "Spacestagram",
+        content:
+          "A standalone react app for astronomy pictures of the day, powered by NASA's APOD API",
+        links: [
+          {
+            title: "Github",
+            link: "https://github.com/Divyam-Arora/spacestagram",
+          },
+          {
+            title: "Website",
+            link: "https://da-spacestagram.netlify.app/",
+          },
+        ],
+      },
+      {
         title: "My Portfolio Website",
         content:
           "A high-performance, Responsive website that uses the power of neumorphism user interface for enriching user experience.",
