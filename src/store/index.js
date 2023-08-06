@@ -65,6 +65,21 @@ const initialAppState = {
     heading: "Projects",
     projects: [
       {
+        title: "My Gallerie",
+        content:
+          "A web app to upload and access your media from anywhere",
+        links: [
+          {
+            title: "Github",
+            link: "https://github.com/Divyam-Arora",
+          },
+          {
+            title: "Website",
+            link: "https://mygallerie.netlify.app",
+          },
+        ],
+      },
+      {
         title: "Spacestagram",
         content:
           "A standalone react app for astronomy pictures of the day, powered by NASA's APOD API",
