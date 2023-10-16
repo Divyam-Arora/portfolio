@@ -1,5 +1,6 @@
 $color-primary: #849467;
-$color-background: #222420;
+$color-background: #e6eae1;
+$color-text: #333;
 
 $font-family: "Roboto Light";
 
@@ -16,7 +17,7 @@ $screen-min: 150px;
 
 @mixin btn($width: auto, $height: auto, $fontSize: $font-size-text) {
   background-color: $color-background;
-  color: white;
+  color: $color-text;
   width: $width;
   min-width: min-content;
   border: none;
