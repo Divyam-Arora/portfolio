@@ -1,0 +1,60 @@
+@import "../../assests/styles/base";
+
+.logo {
+  // position: fixed;
+  // z-index: 999;
+  // top: 0;
+  // left: 0;
+  // transition: 1s ease;
+  // opacity: 1;
+  // transform: translate(-50%, 0%);
+  // border-radius: 10px;
+  // backdrop-filter: blur(2px);
+  // background-color: rgba($color: $color-background, $alpha: 0.5);
+  // padding: 5rem;
+  // width: 100vw;
+  // height: 100vh;
+}
+
+.logo::before {
+  // content: "";
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // background-color: $color-primary;
+  // z-index: -1;
+  // opacity: 1;
+  // transform: translate(-20%, -20%);
+  // border-radius: 500px;
+  // filter: blur(80px) saturate(150%);
+  // transition: 2s ease;
+}
+
+// .hidden {
+//   // left: -10%;
+//   transform: translate(-50%, -50%);
+//   opacity: 0;
+
+//   &.logo::before {
+//     filter: blur(300px) saturate(200%);
+//   }
+// }
+
+.logo > img {
+  height: 50px;
+}
+
+.icon {
+  width: 12rem;
+  height: 12rem;
+  animation: rotate 5s infinite linear;
+  fill: #999;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

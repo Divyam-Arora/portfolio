@@ -4,21 +4,29 @@
   position: relative;
   //   min-height: 100vh;
   width: 100%;
+  min-height: 100dvh;
   min-width: min-content;
   padding-left: 8rem;
   padding-right: 8rem;
-  padding-top: 56rem;
+  padding-top: 24rem;
   padding-bottom: 24rem;
 }
-.sec_head {
-  z-index: 6;
-  background: linear-gradient(
-    to right,
-    $color-primary 0%,
-    $color-background 100%
-  );
-  padding-left: 8rem;
-  font-size: $font-size-heading;
-  color: white;
-  left: 0;
+// .sec_head {
+//   z-index: 6;
+//   background: linear-gradient(
+//     to right,
+//     $color-primary 0%,
+//     $color-background 100%
+//   );
+//   padding-left: 8rem;
+//   font-size: $font-size-heading;
+//   color: white;
+//   left: 0;
+// }
+
+@media screen and (max-width: 480px) {
+  .sec_wrap {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }

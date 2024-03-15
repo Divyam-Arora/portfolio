@@ -1,4 +1,7 @@
 @import "assests/styles/base";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -13,23 +16,25 @@
 }
 
 *::-webkit-scrollbar {
-  width: 4rem;
+  width: 2rem;
+  // background-color: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  width: 4rem;
-  background-color: $color-primary;
+  width: 2rem;
+  background-color: $primary-tint-1;
   opacity: 1;
-  border-radius: 5rem;
+  border-radius: 3px;
 }
 
 *::-webkit-scrollbar-track {
   opacity: 1;
-  background-color: black;
+  // background-color: transparent;
 }
 
 *::selection {
-  background-color: black;
+  background-color: rgb(47, 47, 47);
+  background-color: #fff;
   color: $color-primary;
   opacity: 1;
 }
@@ -37,42 +42,42 @@
 html {
   box-sizing: border-box;
   width: 100%;
-  font-size: 2px;
+  font-size: 3px;
 
   @media screen and (min-width: 400px) {
-    font-size: 2.2px;
+    font-size: 3.1px;
   }
 
   @media screen and (min-width: 500px) {
-    font-size: 2.4px;
-  }
-
-  @media screen and (min-width: 600px) {
-    font-size: 2.6px;
-  }
-
-  @media screen and (min-width: 700px) {
-    font-size: 2.8px;
-  }
-
-  @media screen and (min-width: 800px) {
-    font-size: 3px;
-  }
-
-  @media screen and (min-width: 1000px) {
     font-size: 3.2px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 600px) {
+    font-size: 3.3px;
+  }
+
+  @media screen and (min-width: 700px) {
     font-size: 3.4px;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 800px) {
+    font-size: 3.5px;
+  }
+
+  @media screen and (min-width: 1000px) {
     font-size: 3.6px;
   }
 
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1200px) {
+    font-size: 3.7px;
+  }
+
+  @media screen and (min-width: 1400px) {
     font-size: 3.8px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    font-size: 3.9px;
   }
 
   @media screen and (min-width: 1800px) {
@@ -83,9 +88,10 @@ html {
 body {
   background-color: $color-background;
   font-family: $font-family;
-  color: white;
+  color: $color-text;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  font-size: 3rem;
 
   @media screen and (min-width: $screen-desktop) {
     overflow: auto !important;
@@ -101,24 +107,111 @@ ul {
   min-width: min-content;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 #root {
   width: 100%;
-  @media screen and (min-width: $screen-desktop) {
-    display: flex;
-    flex-direction: row-reverse;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
   width: 100%;
-
-  @media screen and (min-width: $screen-desktop) {
-    width: 70%;
-  }
+  // max-width: 1440px;
+  max-width: $screen-max;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .no_scroll {
   overflow: hidden;
+}
+
+.overlay-item {
+  z-index: 999;
+  position: fixed;
+  // right: 0;
+  // top: 0;
+  transition: 0.5s ease;
+  opacity: 0;
+  // transform: translate(0, 0);
+  border-radius: 100px;
+  // backdrop-filter: blur(2px);
+  // background-color: rgba($color: $color-background, $alpha: 0.8);
+  padding: 10rem;
+  transform: translate3d(0, 0, 0);
+
+  &.top-left {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0%);
+
+    &::before {
+      transform: translate(-20%, -20%);
+    }
+  }
+
+  &.top-right {
+    right: 0;
+    top: 0;
+    transform: translate(0%, -50%);
+
+    &::before {
+      transform: translate(20%, -20%);
+    }
+  }
+
+  &.bottom-left {
+    left: 0;
+    bottom: 0;
+    transform: translate(0%, 50%);
+
+    &::before {
+      transform: translate(-20%, 20%);
+    }
+  }
+
+  &.bottom-right {
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 0%);
+
+    &::before {
+      transform: translate(20%, 20%);
+    }
+  }
+}
+
+.overlay-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $color-primary;
+  z-index: -1;
+  opacity: 1;
+  // transform: translate(-20%, -20%);
+  border-radius: 500px;
+  filter: blur(300px) saturate(200%);
+  transition: 2s ease;
+  transform: translate3d(0, 0, 0);
+}
+
+.overlay-item.visible {
+  // left: -10%;
+  transform: translate(0%, 0%);
+  opacity: 1;
+
+  &.overlay-item::before {
+    filter: blur(80px) saturate(150%);
+  }
 }
 
 #home {
@@ -132,7 +225,7 @@ main {
     color: $color-primary;
     font-size: $font-size-name;
     line-height: 100%;
-    text-shadow: 2px 2px 15px black;
+    // text-shadow: 2px 2px 15px black;
     padding-left: 8rem;
 
     @media screen and (min-width: $screen-desktop) {
@@ -157,6 +250,26 @@ main {
 
   @media screen and (min-width: $screen-desktop) {
     padding-bottom: 20rem;
+  }
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rem;
+
+  .heading {
+    font-size: 10rem;
+    font-weight: bold;
+    color: #444;
+  }
+
+  .subheading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: $color-primary;
+    margin-bottom: -10px;
+    text-transform: uppercase;
   }
 }
 

@@ -15,7 +15,7 @@ import udemyLogo from "../assests/images/udemy.svg";
 import courseraLogo from "../assests/images/coursera.svg";
 
 const initialMenuState = { isOpen: false };
-const initialScrollState = { scroll: 0 };
+const initialScrollState = { scroll: 0, direction: 0 };
 const initialAppState = {
   nav: {
     buttons: [
@@ -268,7 +268,9 @@ const scrollSlice = createSlice({
   initialState: initialScrollState,
   reducers: {
     setScroll: (state, action) => {
-      state.scroll = action.payload;
+      state.direction = state.scroll - action.payload < 0 ? 1 : -1;
+      state.scroll = Math.floor(action.payload);
+      // state.direction = action.payload.direction;
     },
   },
 });

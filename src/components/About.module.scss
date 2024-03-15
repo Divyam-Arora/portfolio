@@ -1,88 +1,27 @@
 @import "../assests/styles/base";
 
-.sec_content {
-  color: white;
-  font-size: $font-size-text;
+.intro {
+  // font-size: 5rem;
+  // width: 100%;
+  height: auto;
+  // flex-shrink: 0;
+  // color: #666;
+  // font-weight: 900;
+  flex-basis: 60%;
+  // flex-grow: 99;
 
-  p {
-    margin-bottom: 8rem;
-  }
-
-  @media screen and (min-width: $screen-desktop) {
-    padding-left: 10rem;
-    padding-right: 50rem;
-  }
+  @include section-desc();
 }
 
-.about_social {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  //   width: 70%;
-  min-width: 96rem;
-  max-width: calc((26rem + 5%) * 3);
-  justify-content: flex-end;
-  position: relative;
-  border: 1px solid $color-primary;
-  border-radius: 100px;
-  height: 32rem;
-  margin-left: 8rem;
-  margin-bottom: 16rem;
-
-  .about_profile {
-    z-index: 1;
-    position: absolute;
-    left: -8rem;
-    border-radius: 50%;
-    background-color: $color-primary;
-
-    img {
-      width: 48rem;
-      border-radius: 50%;
-      background-color: $color-primary;
-    }
+@media screen and (max-width: 768px) {
+  .about {
+    flex-direction: column-reverse;
+    margin-top: 20rem;
   }
 
-  button {
-    @include btn(24rem, 24rem);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin-right: 5%;
-    transition: 0.3s, transform 1s, opacity 1s;
-    @include btn-default();
-
-    &:active {
-      @include btn-active();
-    }
-
-    img {
-      width: 16rem;
-      height: 16rem;
-    }
-
-    @media screen and (min-width: $screen-desktop) {
-      &:hover {
-        @include btn-hover();
-      }
-      &:active {
-        @include btn-active();
-      }
-    }
-  }
-
-  .btn--out {
-    transform: translateX(-100%) rotate(-180deg);
-    opacity: 0;
-
-    @media screen and (min-width: $screen-desktop) {
-      transform: translateX(-200%) rotate(-360deg);
-    }
-  }
-  .btn--in {
-    transform: translateX(0%) rotate(0deg);
-    opacity: 1;
+  .figure {
+    width: 100%;
+    max-width: 100rem;
+    height: auto;
   }
 }

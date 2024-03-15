@@ -1,0 +1,13 @@
+@import "../../assests/styles/base";
+
+.btn:hover {
+  & > *:first-child {
+    stroke: $color-primary;
+  }
+}
+
+.btn > *:first-child {
+  stroke: #333;
+  stroke-width: 20;
+  transition: 0.2s;
+}

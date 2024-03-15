@@ -1,0 +1,15 @@
+.highlight {
+  // width: min-content;
+  display: inline;
+  position: relative;
+  white-space: nowrap;
+
+  svg {
+    opacity: 0.5;
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    // transform: translateY(-50%);
+  }
+}
