@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialScrollState = { scroll: 0, direction: 0 };
+
 const scrollSlice = createSlice({
   name: "scroll",
   initialState: initialScrollState,
