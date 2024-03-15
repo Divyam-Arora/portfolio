@@ -6,14 +6,6 @@ import Button from "./Ui/Buton";
 // import corinna from "../assests/images/corinna.jpeg";
 // import lauren from "../assests/images/lauren.jpg";
 
-import pc1 from "../assests/images/pc_screen_1.bmp";
-import pc2 from "../assests/images/pc_screen_2.bmp";
-import pc3 from "../assests/images/pc_screen_3.bmp";
-
-import mobile1 from "../assests/images/mobile_1.bmp";
-import mobile2 from "../assests/images/mobile_2.bmp";
-import mobile3 from "../assests/images/mobile_3.bmp";
-
 import Gallerie_PC from "../assests/images/Gallerie_PC.webp";
 import Gallerie_Mobile from "../assests/images/Gallerie_Mobile.webp";
 import Gallerie_Tablet from "../assests/images/Gallerie_Tablet.webp";
