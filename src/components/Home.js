@@ -2,8 +2,6 @@
 import { useSelector } from "react-redux";
 import SectionWrap from "./Ui/SectionWrap";
 import classes from "./Home.module.scss";
-import heroVideo from "../assests/videos/hero.mp4";
-import hero1 from "../assests/images/test.jpg";
 import { ReactComponent as Face } from "../assests/svgs/pic.svg";
 
 const Home = function () {
