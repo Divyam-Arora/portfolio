@@ -5,7 +5,7 @@ import classes from "./SectionWrap.module.scss";
 // import { scrollActions } from "../../store";
 // import { hashActions } from "../../store";
 
-const SectionWrap = function (props) {
+const SectionWrap = function ({ id, subtitle, title, children }) {
   //   const sectionRef = useRef(null);
   //   const headRef = useRef(null);
   //   const dispatch = useDispatch();
@@ -39,14 +39,12 @@ const SectionWrap = function (props) {
   //     observer.observe(headRef.current);
   //   }, [hasVisited, headRef, windowHeight, dispatch]);
   return (
-    <section className={classes.sec_wrap} id={props.id}>
-      <h1
-        className={classes.sec_head + " sec_head--top"}
-        id={`${props.id}_head`}
-      >
-        {props.title}
-      </h1>
-      {props.children}
+    <section className={classes.sec_wrap} id={id}>
+      <div className="heading-container">
+        <h5 className="subheading">{subtitle}</h5>
+        <h2 className="heading">{title}</h2>
+      </div>
+      {children}
     </section>
   );
 };

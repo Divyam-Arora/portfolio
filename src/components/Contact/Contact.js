@@ -37,7 +37,7 @@ const Contact = function () {
   }, []);
 
   return (
-    <SectionWrap id="contact" title="Contact">
+    <SectionWrap id="contact" subtitle="Contact" title="Let's talk">
       <form
         ref={formRef}
         className={classes.contact_form}

@@ -1,28 +1,27 @@
 // import classes from "./Home.module.scss";
 import { useSelector } from "react-redux";
 import SectionWrap from "./Ui/SectionWrap";
+import classes from "./Home.module.scss";
+import heroVideo from "../assests/videos/hero.mp4";
+import hero1 from "../assests/images/test.jpg";
+import { ReactComponent as Face } from "../assests/svgs/pic.svg";
 
 const Home = function () {
-  const { home } = useSelector((state) => state.app);
-  const name = home.name.split(" ").map((part, i, arr) => {
-    return (
-      <p key={part}>
-        {part} <br />
-      </p>
-    );
-  });
-  const work = home.work.split("/").map((part, i, arr) => {
-    if (i === arr.length - 1) {
-      return <p key={part}>{part}</p>;
-    }
-    return <p key={part}>{part}/</p>;
-  });
   return (
     <>
-      <SectionWrap id="home">
-        <div className="home--name">{name}</div>
-        <div className="home--work">{work}</div>
-      </SectionWrap>
+      <div className={classes.home}>
+        <section className={classes.hero}>
+          <div className={`${classes.info} ${classes.infoBack}`}>
+            <div className="home--name">Divyam Arora</div>
+            <div className="home--work">Web Developer</div>
+          </div>
+          {/* <video autoPlay loop>
+            <source src={heroVideo} />
+          </video> */}
+          <Face className={classes.face} />
+          {/* <img src={hero1} /> */}
+        </section>
+      </div>
     </>
   );
 };

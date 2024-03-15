@@ -2,14 +2,17 @@ $color-primary: #849467;
 $color-background: #e6eae1;
 $color-text: #333;
 
-$font-family: "Roboto Light";
+$primary-tint-1: #b5bfa4;
+$primary-tint-2: #dadfd1;
+
+$font-family: "Rubik", "sans-serif";
 
 $font-size-name: 40rem;
 $font-size-heading: 20rem;
 $font-size-title: 12rem;
 $font-size-text: 8rem;
 
-$screen-max: 1920px;
+$screen-max: 1440px;
 $screen-desktop: 950px;
 $screen-tablet: 550px;
 $screen-phone: 250px;
@@ -37,4 +40,10 @@ $screen-min: 150px;
 @mixin btn-active() {
   box-shadow: inset 2px 2px 5px #0000007f, inset -2px -2px 5px #ffffff1f;
   border: 1px solid transparent;
+}
+
+@mixin section-desc() {
+  font-size: 5rem;
+  color: #555;
+  // font-weight: 900;
 }

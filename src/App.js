@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { hashActions } from "./store";
+import { hashActions, scrollActions } from "./store";
 import { useEffect } from "react";
 
 import NavBundle from "./components/nav/NavBundle";
@@ -8,11 +8,22 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Certifications from "./components/Certifications";
-import Contact from "./components/Contact/Contact";
+import Overlay from "./components/nav/Overlay";
+import Logo from "./components/nav/Logo";
+import Menu from "./components/nav/Menu";
+import Contact from "./components/nav/Contact";
+import ScrollTop from "./components/nav/ScrollTop";
 
 function App() {
   const { menu } = useSelector((state) => state.app.nav);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.onscroll = function (e) {
+      const scroll = window.scrollY;
+      dispatch(scrollActions.setScroll(scroll));
+    };
+  }, []);
   // const { isOpen } = useSelector((state) => state.menu);
   // const { hash } = useSelector((state) => state.hash);
 
@@ -73,13 +84,17 @@ function App() {
   return (
     <>
       {/* <NavBundle /> */}
+      {/* <Overlay /> */}
+      <Logo />
+      <Menu />
+      <Contact />
+      <ScrollTop />
       <main id="main">
         <Home />
         <About />
-        <Projects />
         <Skills />
-        <Certifications />
-        <Contact />
+        <Projects />
+        {/* <Certifications /> */}
       </main>
     </>
   );

@@ -1,1 +1,115 @@
 @import "../assests/styles/base";
+.home {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  padding: 0 5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  font-size: 15rem;
+  display: flex;
+  flex-direction: row;
+  gap: 20rem;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.info {
+  position: relative;
+  z-index: 2;
+  transform: translateX(-25%);
+  opacity: 0;
+  animation: appear 0.5s forwards;
+
+  & > div:nth-child(2) {
+    font-size: 8rem;
+    text-transform: uppercase;
+    color: $color-primary;
+    letter-spacing: -0.5px;
+    word-spacing: 4px;
+    background: linear-gradient(
+      90deg,
+      $color-primary,
+      $color-primary,
+      $color-primary,
+      #fff,
+      $color-primary,
+      $color-primary,
+      $color-primary
+    );
+    background-clip: text;
+    background-position: right;
+    animation: shine 5s infinite linear;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+  }
+}
+
+@keyframes shine {
+  100% {
+    background-position: left;
+  }
+}
+
+.face {
+  transform: translateX(25%);
+  opacity: 0;
+  animation: appear 0.5s forwards;
+  max-height: 100svh;
+}
+
+.infoBack::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // aspect-ratio: 1;
+  // border-radius: %;
+  background-color: rgba($color: $color-primary, $alpha: 0.2);
+  filter: blur(100px) saturate(150%);
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes appear {
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes appear-right-mobile {
+  100% {
+    transform: translateX(40%);
+    opacity: 0.5;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    justify-content: flex-start;
+  }
+  .face {
+    position: absolute;
+    right: 0;
+    // transform: translateX(0%);
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .face {
+    opacity: 0;
+    animation: appear-right-mobile 0.5s forwards;
+    transform: translateX(60%);
+  }
+}

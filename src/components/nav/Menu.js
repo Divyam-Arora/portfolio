@@ -7,6 +7,7 @@ const Menu = function () {
   const { menu } = useSelector((state) => state.app.nav);
   const { isOpen } = useSelector((state) => state.menu);
   const { hash } = useSelector((state) => state.hash);
+  const { scroll, direction } = useSelector((state) => state.scroll);
 
   const dispatch = useDispatch();
 
@@ -28,8 +29,14 @@ const Menu = function () {
     </button>
   ));
   return (
-    <div className={`${classes.nav_overlay} ${isOpen ? "" : classes.hidden}`}>
-      <div className={classes.menu}>{buttons}</div>
+    <div
+      className={`${classes.overlay} overlay-item top-right ${
+        direction <= 0 ? "visible" : ""
+      }`}
+    >
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
     </div>
   );
 };

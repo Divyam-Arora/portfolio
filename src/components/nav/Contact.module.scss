@@ -1,0 +1,98 @@
+@import "../../../src/assests/styles/base";
+
+.menu {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: $primary-tint-1;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+
+  &.top {
+    z-index: 5;
+    transition-delay: 0s;
+    transform: translate(0%, -200%);
+  }
+
+  &.top-right {
+    z-index: 5;
+    transition-delay: 0.05s;
+    transform: translate(150%, -150%);
+  }
+
+  &.right {
+    z-index: 5;
+    transition-delay: 0.1s;
+    transform: translate(200%, 0%);
+  }
+
+  &.cross {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+
+  & > * {
+    transition: 0.2s;
+  }
+}
+
+.close .btn:not(.cross) {
+  opacity: 0;
+  animation: btns 9s infinite forwards;
+  transform: translate(0%, 0%);
+}
+
+@keyframes btns {
+  0% {
+    opacity: 1;
+  }
+
+  34% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.close *:nth-child(1) .btn {
+  animation-delay: 3s;
+}
+
+.close *:nth-child(2) .btn {
+  animation-delay: 6s;
+}
+
+.menu:not(.close) .btn:hover > * {
+  transform: scale(1.1);
+}
+
+.close .cross {
+  opacity: 0;
+  transform: translate(-100%, 100%);
+}
